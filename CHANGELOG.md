@@ -1,3 +1,10 @@
+### v2.1.301 [[code][c2.1.301], [diff][d2.1.301]]
+
+[c2.1.301]: https://github.com/adaptable/json5-with-undefined/tree/v2.1.301
+[d2.1.301]: https://github.com/adaptable/json5-with-undefined/compare/v2.1.300...v2.1.301
+
+- New: Adds TypeScript types
+
 ### v2.1.300 [[code][c2.1.300], [diff][d2.1.300]]
 
 [c2.1.300]: https://github.com/adaptable/json5-with-undefined/tree/v2.1.300
