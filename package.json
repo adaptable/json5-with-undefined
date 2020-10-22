@@ -1,6 +1,6 @@
 {
   "name": "json5-with-undefined",
-  "version": "2.1.300",
+  "version": "2.1.301",
   "description": "JSON for humans (with support for undefined).",
   "main": "lib/index.js",
   "module": "dist/index.mjs",

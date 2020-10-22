@@ -1,7 +1,7 @@
 // This is a generated file. Do not edit.
 {
   name: 'json5-with-undefined',
-  version: '2.1.300',
+  version: '2.1.301',
   description: 'JSON for humans (with support for undefined).',
   main: 'lib/index.js',
   module: 'dist/index.mjs',
@@ -11,6 +11,7 @@
     'lib/',
     'dist/',
   ],
+  types: 'lib/index.d.ts',
   engines: {
     node: '>=6',
   },
@@ -61,7 +62,7 @@
   bugs: {
     url: 'https://github.com/adaptable/json5-with-undefined/issues',
   },
-  homepage: 'https://github.com/adaptable/json5-with-undefined#README',
+  homepage: 'https://adaptable.github.io/json5-with-undefined/',
   dependencies: {
     minimist: '^1.2.5',
   },
