@@ -1,7 +1,14 @@
-[![Build Status](https://travis-ci.org/json5/json5.svg)][Build Status]
+# JSON5 – JSON for Humans (with support for undefined)
+
+[![Build Status](https://travis-ci.org/adaptable/json5-with-undefined.svg)][Build Status]
 [![Coverage
 Status](https://coveralls.io/repos/github/json5/json5/badge.svg)][Coverage
 Status]
+
+> **Fork Extention**
+>
+> This is a fork of the [JSON5 project](https://github.com/json5/json5) that adds support for parsing and serializing the JavaScript/ECMAScript value `undefined`.
+> Changes and additions that are specific to this fork are marked with the phrase **Fork extension**.
 
 The JSON5 Data Interchange Format (JSON5) is a superset of [JSON] that aims to
 alleviate some of the limitations of JSON by expanding its syntax to include
@@ -46,6 +53,9 @@ been extended to JSON5.
 ### White Space
 - Additional white space characters are allowed.
 
+### Undefined values (**Fork Extension**)
+- The value `undefined` is allowed (in addition to `null` from standard JSON).
+
 [IdentifierName]: https://www.ecma-international.org/ecma-262/5.1/#sec-7.6
 
 [IEEE 754]: http://ieeexplore.ieee.org/servlet/opac?punumber=4610933
@@ -63,6 +73,7 @@ No \\n's!",
   positiveSign: +1,
   trailingComma: 'in objects', andIn: ['arrays',],
   "backwardsCompatible": "with JSON",
+  propertiesCanBe: undefined,   // Fork Extension
 }
 ```
 
@@ -73,11 +84,11 @@ specification](https://json5.github.io/json5-spec/).
 ## Installation
 ### Node.js
 ```sh
-npm install json5
+npm install json5-with-undefined
 ```
 
 ```js
-const JSON5 = require('json5')
+const JSON5 = require('json5-with-undefined')
 ```
 
 ### Browsers
@@ -97,6 +108,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Parses a JSON5 string, constructing the JavaScript value or object described by
 the string. An optional reviver function can be provided to perform a
 transformation on the resulting object before it is returned.
+
+(**Fork Extension**) `JSON5.parse` accepts the keyword `undefined`, similarly
+to the keyword `null` and sets properties and other values in the resulting
+object accordingly. This behavior is not configurable.
 
 #### Syntax
     JSON5.parse(text[, reviver])
@@ -138,6 +153,13 @@ properties if a replacer array is specified.
   - `space`: Same as the `space` parameter.
   - `quote`: A String representing the quote character to use when serializing
     strings.
+  - `useUndefined`: (**Fork Extension**) If `useUndefined` is unset or
+    falsey, the generated JSON5 string will contain no uses of the `undefined`
+    keyword and will be identical to using `JSON5.stringify` from the upstream
+    project.
+    If `useUndefined` is truthy, properties and other values that are
+    `undefined` will be stringified as the keyword `undefined` in the
+    resulting JSON5 string.
 
 #### Return value
 A JSON5 string representing the value.
@@ -147,7 +169,7 @@ When using Node.js, you can `require()` JSON5 files by adding the following
 statement.
 
 ```js
-require('json5/lib/register')
+require('json5-with-undefined/lib/register')
 ```
 
 Then you can load a JSON5 file with a Node.js `require()` statement. For
@@ -163,7 +185,7 @@ converting JSON5 to JSON and for validating the syntax of JSON5 documents.
 
 ### Installation
 ```sh
-npm install --global json5
+npm install --global json5-with-undefined
 ```
 
 ### Usage
@@ -183,8 +205,8 @@ If `<file>` is not provided, then STDIN is used.
 ## Contributing
 ### Development
 ```sh
-git clone https://github.com/json5/json5
-cd json5
+git clone https://github.com/adaptable/json5-with-undefined
+cd json5-with-undefined
 npm install
 ```
 
@@ -197,7 +219,7 @@ To report bugs or request features regarding the JSON5 data format, please
 submit an issue to the [official specification
 repository](https://github.com/json5/json5-spec).
 
-To report bugs or request features regarding the JavaScript implentation of
+To report bugs or request features regarding the JavaScript implementation of
 JSON5, please submit an issue to this repository.
 
 ## License
@@ -219,7 +241,7 @@ implementation of JSON5 was also modeled directly off of Doug’s open-source
 code.
 
 [json_parse.js]:
-https://github.com/douglascrockford/JSON-js/blob/master/json_parse.js
+https://github.com/douglascrockford/JSON-js/blob/03157639c7a7cddd2e9f032537f346f1a87c0f6d/json_parse.js
 
 [Max Nanasy](https://github.com/MaxNanasy) has been an early and prolific
 supporter, contributing multiple patches and ideas.
