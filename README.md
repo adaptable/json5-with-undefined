@@ -252,3 +252,4 @@ supporter, contributing multiple patches and ideas.
 [Jordan Tucker](https://github.com/jordanbtucker) has aligned JSON5 more closely
 with ES5, wrote the official JSON5 specification, completely rewrote the
 codebase from the ground up, and is actively maintaining this project.
+
